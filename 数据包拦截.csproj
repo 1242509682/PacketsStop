@@ -4,7 +4,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <AssemblyName>$(MSBuildProjectName) v1.0.0【指令与权限：拦截】</AssemblyName>
+        <AssemblyName>$(MSBuildProjectName) v2.0.0【指令与权限：拦截】</AssemblyName>
     </PropertyGroup>
     <ItemGroup>
       <PackageReference Include="TShock" Version="5.*" />
