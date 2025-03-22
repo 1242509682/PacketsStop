@@ -1,54 +1,51 @@
-# PacketsStop 数据包拦截
+# PacketsStop
 
-- 作者: 羽学 少司命
-- 出处: [PacketsStop](https://github.com/1242509682/PacketsStop/)
-- 这是一个Tshock服务器插件主要用于： 
-- 使用指令开启拦截指定玩家的数据包  
-- 输入【/pksp add 名字】将指定玩家添加到拦截名单后输入【/pksp on】即可开启拦截 
-- 插件源码来于少司命的游客限制插件，将其处理数据包方法做成了一个独立的功能插件
+- Author: 羽学 少司命
+- Source: [PacketsStop](https://github.com/1242509682/PacketsStop/)
+- This is a Tshock server plugin mainly used for intercepting specified player's data packets through commands.
+- Use `/pksp add name` to add a specified player to the interception list and then use `/pksp on` to activate interception.
+- The source code of this plugin was adapted from ShaoSiMing's visitor restriction plugin, transforming its method of processing data packets into an independent function plugin.
 
-## 指令
+## Commands
 
-| 语法                             | 别名  |       权限       |                   说明                   |
-| -------------------------------- | :---: | :--------------: | :--------------------------------------: |
-| /pksp 或 packetstop | 无   | packetstop.use  |          指令菜单          |
-| /pksp on | 无   | packetstop.use  |          开启数据包拦截          |
-| /pksp off | 无  | packetstop.use  |          关闭数据包拦截          |
-| /pksp list | 无    | packetstop.use  |          列出拦截名单          |
-| /pksp add 玩家名 | 无 | packetstop.use  | 将指定玩家添加到拦截名单 |
-| /pksp del 玩家名 | 无 | packetstop.use  |  将指定玩家从拦截名单移除  |
-| /pksp reset | 无 | packetstop.use  |  清空拦截名单  |
-| /reload | 无 |   tshock.cfg.reload    |    重载配置文件    |
+| Syntax                             | Alias  |       Permission       |                   Description                   |
+| ---------------------------------- | :----: | :--------------------: | :---------------------------------------------: |
+| /pksp or packetstop                | None   | packetstop.use         | Displays command menu                           |
+| /pksp on                           | None   | packetstop.use         | Enables data packet interception                |
+| /pksp off                          | None   | packetstop.use         | Disables data packet interception               |
+| /pksp list                         | None   | packetstop.use         | Lists players in the interception list          |
+| /pksp add playername               | None   | packetstop.use         | Adds specified player to interception list      |
+| /pksp del playername               | None   | packetstop.use         | Removes specified player from interception list |
+| /pksp reset                        | None   | packetstop.use         | Clears the interception list                    |
+| /reload                            | None   | tshock.cfg.reload      | Reloads configuration file                      |
 
-## 更新日志
-
+## Update Log
 ```
-- 1.0.6
-- 重构并修复代码，不再将拦截对象加入到一个新的组
-- 而是通过配置文件中的名单进行指定
-- 完善了部分指令用于更方便的增删改查
-- 预设配置中加入了全部的数据包名，方便筛选
-- 1.0.5
-- 添加英文命令，修改权限
-- 1.0.1
-- 完善卸载函数
-- 2.0
-- 修复数据包拦截插件的GetPacket逻辑：原对配置文件内的数据包名以外的全部拦截问题已修复
-- 1.0
-- 将少司命的游客限制插件处理数据包方法，做成了一个独立的功能插件。
+1.0.6
+Refactored and fixed codes, no longer adding intercepted targets to a new group but specifying through the list in the configuration file.
+Improved some commands for easier addition, deletion, modification, and query.
+Added all packet names in preset configurations for easy filtering.
+1.0.5
+Added English commands, modified permissions.
+1.0.1
+Enhanced uninstallation function.
+2.0
+Fixed GetPacket logic in the data packet interception plugin: Resolved issue where everything outside of the packet names listed in the configuration file was being intercepted.
+1.0
+Adapted the method of processing data packets from ShaoSiMing's visitor restriction plugin into an independent function plugin.
 ```
 
-## 配置
-> 配置文件位置：tshock/数据包拦截.json
+## Configuration
+> Configuration file position: tshock/数据包拦截.json
 ```json5
 {
-  "数据包名可查看": "https://github.com/Pryaxis/TSAPI/blob/general-devel/TerrariaServerAPI/TerrariaApi.Server/PacketTypes.cs",
-  "插件指令与权限名": "指令：pksp 权限：packetstop.use",
-  "功能开关": false,
-  "拦截玩家名单": [
+  "DataPacketNamesViewableAt": "https://github.com/Pryaxis/TSAPI/blob/general-devel/TerrariaServerAPI/TerrariaApi.Server/PacketTypes.cs",
+  "CommandAndPermissionName": "Command:pksp Permission:packetstop.use",
+  "FeatureSwitch": false,
+  "PlayerInterceptionList": [
     "羽学"
   ],
-  "拦截数据包名": [
+  "PacketNames": [
     "ConnectRequest",
     "Disconnect",
     "ContinueConnecting",
@@ -196,7 +193,7 @@
 }
 ```
 
-## 反馈
-- 优先发issued -> 共同维护的插件库：https://github.com/UnrealMultiple/TShockPlugin
-- 次优先：TShock官方群：816771079
-- 大概率看不到但是也可以：国内社区trhub.cn ，bbstr.net , tr.monika.love
+## Feedback
+- Github Issue -> TShockPlugin Repo: https://github.com/UnrealMultiple/TShockPlugin
+- TShock QQ Group: 816771079
+- China Terraria Forum: trhub.cn, bbstr.net, tr.monika.love
